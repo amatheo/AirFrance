@@ -1,12 +1,12 @@
-<div class="">
-  <div class="title"><h1>DECOLLAGES</h1></div>
+<div class="flex flex-col max-h-full">
+  <div class="title"><h1>{{type | uppercase}}</h1></div>
   <div class="min-h-screen flex">
-    <div class="flex-1">
-      <div class="">
-        <app-filtres></app-filtres>
+    <div class="flex-1 flex-row">
+      <div class="flex-1">
+        <app-filtres (filter)="onFiltresEvent($event)"></app-filtres>
       </div>
-      <div class="">
-        <app-liste-vols></app-liste-vols>
+      <div class="flex-1">
+        <app-liste-vols [vols]="vols" (volSelected)="loadPassagers($event)"></app-liste-vols>
       </div>
     </div>
     <div class="flex-1">

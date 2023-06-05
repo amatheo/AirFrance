@@ -1,1 +1,14 @@
-<!-- Affichage d'un vol -->
+<div class="flex flex-row items-center justify-between bg-white cursor-pointer hover:drop-shadow-md rounded-md p-4">
+  <mat-icon>{{type=='decollages' ? 'flight_takeoff': 'flight_land'}}</mat-icon>
+  <span>{{vol.matricule | uppercase}}</span>
+  <span>{{vol.icao | uppercase}}</span>
+  <div class="flex flex-row items-center justify-center">
+    <span>{{vol.aeroportDepart}}</span>
+    <mat-icon>arrow_right_alt</mat-icon>
+    <span>{{vol.aeroportArrivee}}</span>
+  </div>
+  <div class="w-40">
+    <img [src]="getLogo(vol.compagnie)" [alt]="vol.compagnie">
+  </div>
+</div>
+

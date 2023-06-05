@@ -1,21 +1,21 @@
-<div class="flex flex-row justify-center items-center gap-4">
-  <mat-form-field appearance="outline">
+<div class="flex flex-row flex-wrap items-center gap-4" [formGroup]="filtreGroup">
+  <mat-form-field>
     <mat-label>Aéroport</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let aeroport of aeroports" [value]="aeroport">{{ aeroport.ville + ' - ' + aeroport.nom }}</mat-option>
+    <mat-select formControlName="aero">
+      <mat-option *ngFor="let aeroport of aeroports" [value]="{aeroport}">{{ aeroport.ville + ' - ' + aeroport.icao}}</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
+  <mat-form-field>
     <mat-label>Dates</mat-label>
-    <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate placeholder="Date de début">
-      <input matEndDate placeholder="Date de fin">
+    <mat-date-range-input [rangePicker]="picker" [formGroup]="filtreGroup">
+      <input matStartDate placeholder="Date de début" formControlName="start">
+      <input matEndDate placeholder="Date de fin" formControlName="end">
     </mat-date-range-input>
-    <mat-hint>Entrez une période de 3 jours</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-date-range-picker #picker></mat-date-range-picker>
   </mat-form-field>
 
-  <button class="" mat-flat-button>Appliquer</button>
+  <button class="p-4" [disabled]="!filtreGroup.valid" mat-flat-button (click)="sendFilter()">Appliquer</button>
 </div>
+

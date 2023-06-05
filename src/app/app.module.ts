@@ -24,6 +24,9 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ViewAirFranceComponent } from './components/view-airfrance/view-airfrance.component';
 import { VolComponent } from './components/vol/vol.component';
 import { HttpFlightInterceptor } from './interceptors/http-flight.interceptor';
+import { ClasseVolDirective } from './directives/classevol.directive';
+import { PoidsBagagesDirective } from './directives/poids-bagages.directive';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 registerLocaleData(localeFr, 'fr');
 
@@ -36,25 +39,28 @@ registerLocaleData(localeFr, 'fr');
     ToolbarComponent,
     ListePassagersComponent,
     PassagerComponent,
-    ViewAirFranceComponent
+    ViewAirFranceComponent,
+    ClasseVolDirective,
+    PoidsBagagesDirective
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSlideToggleModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSlideToggleModule,
+        MatTooltipModule
+    ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr' },
     { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' },

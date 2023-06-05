@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { IFiltres } from 'src/app/models/filtres.model';
 import { Vol } from 'src/app/models/vol.model';
 import { VolService } from '../../services/vol.service';
@@ -8,7 +8,7 @@ import { VolService } from '../../services/vol.service';
   templateUrl: './view-airfrance.component.html',
   styleUrls: ['./view-airfrance.component.scss']
 })
-export class ViewAirFranceComponent {
+export class ViewAirFranceComponent implements OnDestroy, OnInit {
 
   vols: Vol[] = [];
 

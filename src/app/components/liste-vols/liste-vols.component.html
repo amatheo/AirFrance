@@ -1,1 +1,6 @@
-<!-- Affichage de la liste des vols -->
+<!-- Affichage de la liste des vols en forme de tableau avec ngFor et Tailwind CSS -->
+<div class="gap-4 overflow-y-scroll max-h-full">
+  <ng-container *ngFor="let vol of vols">
+    <app-vol class="cursor-pointer" (click)="volSelected.emit(vol)" [vol]="vol" [type]="type"></app-vol>
+  </ng-container>
+</div>

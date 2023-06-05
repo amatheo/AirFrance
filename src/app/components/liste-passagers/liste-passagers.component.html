@@ -1,3 +1,7 @@
 <!-- Affichage de la liste des passagers -->
-
-
+<div class="flex flex-col gap-4 overflow-y-scroll">
+  <mat-slide-toggle [(ngModel)]="afficherPhotos">Afficher les photos</mat-slide-toggle>
+  <ng-container *ngFor="let passager of passagers">
+    <app-passager [passager]="passager" [afficherPhoto]="afficherPhotos" class="cursor-pointer"></app-passager>
+  </ng-container>
+</div>

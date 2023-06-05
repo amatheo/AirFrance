@@ -1,1 +1,15 @@
 <!-- Affichage d'un passager -->
+<div class="flex flex-row items-center justify-between bg-white cursor-pointer hover:drop-shadow-md rounded-md p-4">
+  <div class="w-40" *ngIf="afficherPhoto">
+    <img [src]="passager.image" [alt]="passager.nom">
+  </div>
+  <span matTooltip="{{passager.email}}">{{passager.nom}}</span>
+  <span [appClasseVol]="passager.classeVol | uppercase">{{passager.classeVol | uppercase}}</span>
+  <div class="flex flex-row items-center justify-center" [appPoidsBagages]="passager.classeVol" [nbBagages]="passager.nbBagagesSoute">
+    <mat-icon>luggage</mat-icon>
+    <span>x{{passager.nbBagagesSoute}}</span>
+  </div>
+</div>
+
+
+
